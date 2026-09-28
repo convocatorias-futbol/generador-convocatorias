@@ -1,10 +1,8 @@
+```html
 <title>Generador de Convocatorias</title>
 
 <!-- =========================================================
      TIPOGRAFÍAS
-     Montserrat = tipografía principal
-     Anton = sustituta visual de Extenga 50 Mega
-     Archivo Black = sustituta visual de TT Interphases
 ========================================================== -->
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -206,7 +204,6 @@
 
     /* =========================================================
        CONVOCATORIA REAL
-       SIEMPRE 1080 x 1920
     ========================================================= */
 
     .convocatoria {
@@ -229,7 +226,6 @@
 
     /* =========================================================
        CABECERA AZUL
-       NO MODIFICAR: AJUSTADA PREVIAMENTE
     ========================================================= */
 
     .cabecera-azul {
@@ -250,7 +246,6 @@
 
     /* =========================================================
        JORNADA / AMISTOSO
-       CANVA: MONTSERRAT 27,7 BOLD
     ========================================================= */
 
     .jornada-capsula {
@@ -280,7 +275,6 @@
 
     /* =========================================================
        FECHA
-       CANVA: MONTSERRAT 24 BOLD
     ========================================================= */
 
     .fecha {
@@ -299,7 +293,6 @@
 
     /* =========================================================
        CAMPO / LUGAR
-       CANVA: MONTSERRAT 24 REGULAR
     ========================================================= */
 
     .campo {
@@ -331,7 +324,6 @@
         vertical-align: middle;
     }
 
-    /* Chincheta tipo Google Maps: gota invertida */
     .icono-ubicacion::before {
         content: '';
 
@@ -371,8 +363,6 @@
 
     /* =========================================================
        CONVOCATORIA
-       CANVA: EXTENGA 50 MEGA 157
-       SUSTITUTA: ANTON
     ========================================================= */
 
     .titulo-convocatoria {
@@ -395,7 +385,6 @@
 
     /* =========================================================
        CATEGORÍA
-       CANVA: MONTSERRAT 24
     ========================================================= */
 
     .categoria {
@@ -414,7 +403,6 @@
 
     /* =========================================================
        ENFRENTAMIENTO
-       AJUSTE: UN POCO MÁS CORTO
     ========================================================= */
 
     .enfrentamiento {
@@ -466,7 +454,6 @@
 
     /* =========================================================
        VS
-       CANVA: MONTSERRAT 24 BOLD
     ========================================================= */
 
     .vs {
@@ -481,7 +468,6 @@
 
     /* =========================================================
        NOMBRES EQUIPOS
-       CANVA: MONTSERRAT 24
     ========================================================= */
 
     .nombres-equipos {
@@ -521,7 +507,6 @@
 
     /* =========================================================
        DIAGONAL AZUL / BLANCO
-       NO MODIFICAR
     ========================================================= */
 
     .cabecera-azul::after {
@@ -589,7 +574,6 @@
 
     /* =========================================================
        POSICIONES
-       CANVA: MONTSERRAT 22,8 BOLD
     ========================================================= */
 
     .titulo-posicion {
@@ -620,8 +604,6 @@
 
     /* =========================================================
        DORSALES
-       CANVA: TT INTERPHASES 29,4 BOLD
-       SUSTITUTA: ARCHIVO BLACK
     ========================================================= */
 
     .dorsal {
@@ -639,8 +621,7 @@
 
 
     /* =========================================================
-       NOMBRES JUGADORES
-       CANVA: MONTSERRAT 29,6 BOLD
+       NOMBRES / MOTES JUGADORES
     ========================================================= */
 
     .nombre-jugador {
@@ -676,7 +657,6 @@
 
     /* =========================================================
        ENTRENADOR / CUERPO TÉCNICO
-       CONFIGURACIÓN BASE
     ========================================================= */
 
     .staff-titulo,
@@ -716,7 +696,6 @@
 
     /* =========================================================
        CONFIGURACIÓN 18 JUGADORES
-       MÁS AIRE + STAFF LIGERAMENTE MAYOR Y MÁS ARRIBA
     ========================================================= */
 
     .convocatoria.config-18 .staff {
@@ -737,7 +716,6 @@
 
     /* =========================================================
        CONFIGURACIÓN 24 JUGADORES
-       MÁS COMPACTA PARA EVITAR SUPERPOSICIONES
     ========================================================= */
 
     .convocatoria.config-24 .zona-blanca {
@@ -786,7 +764,6 @@
 
     /* =========================================================
        DIAGONAL BLANCO / AZUL
-       NO MODIFICAR
     ========================================================= */
 
     .zona-blanca::after {
@@ -837,7 +814,6 @@
 
     /* =========================================================
        EQUIPACIÓN
-       AHORA EN ESQUINA INFERIOR DERECHA
     ========================================================= */
 
     .equipacion-pie {
@@ -903,8 +879,6 @@
 
     /* =========================================================
        HORARIOS
-       LIGERAMENTE MÁS GRANDES
-       Y COLOCADOS A LA IZQUIERDA DE LA EQUIPACIÓN
     ========================================================= */
 
     .horarios {
@@ -1889,6 +1863,10 @@
                         "span"
                     );
 
+                /* =================================================
+                   EN EL FORMULARIO SE MANTIENE EL NOMBRE COMPLETO
+                ================================================= */
+
                 texto.textContent =
                     `${jugador.dorsal} - ${jugador.nombre}`;
 
@@ -2186,8 +2164,15 @@
                 nombre.className =
                     "nombre-jugador";
 
+                /* =================================================
+                   EN LA CONVOCATORIA SE MUESTRA EL MOTE
+                   Si por algún motivo no existe mote, se utiliza
+                   el nombre completo como respaldo.
+                ================================================= */
+
                 nombre.textContent =
                     mayusculas(
+                        jugador.mote ||
                         jugador.nombre
                     );
 
@@ -2395,9 +2380,6 @@
 
     /* =========================================================
        CONFIGURACIÓN SEGÚN NÚMERO DE CONVOCADOS
-       SOLO EXISTEN DOS CASOS:
-       18 = PARTIDO OFICIAL
-       24 = AMISTOSO
     ========================================================= */
 
     function aplicarConfiguracionJugadores(
@@ -2677,8 +2659,6 @@
 
         /* =====================================================
            VALIDACIÓN DE CONVOCADOS
-           PARTIDO OFICIAL = EXACTAMENTE 18
-           AMISTOSO = MÁXIMO 24
         ===================================================== */
 
         if (
@@ -2877,3 +2857,4 @@
     ajustarConvocatoria();
 
 </script>
+```
